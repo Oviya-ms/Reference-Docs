@@ -1,0 +1,29 @@
+git stash
+git stash push -m "WIP:Login page"
+git stash save "message"
+git stash save --include-untracked
+git stash list
+git stash show
+git stash show -p
+git stash apply
+git stash apply stash@{1}
+git stash pop
+git stash drop
+git stash drop stash@{0}
+git stash clear
+git stash branch newbranch stash@{0} - stash the files which are untracked or ignored files
+--------------------------------------
+git tag v1.0
+git tag -a v1.0 -m "Version 1.0 Release"  - stores the name,date,message
+git tag v1.1 1a2ghjg - you can a specific commit
+git tag
+git show v1.0
+git push origin v1.0
+git push --tags
+git tag -d v1.0
+git push origin --delete tag v1.0
+
+Update or Replace a Tag
+----
+git tag -f v2.0 c8bf8bbb300079428bfb7d93e5151d649102d1e6
+git push --force origin v1.0

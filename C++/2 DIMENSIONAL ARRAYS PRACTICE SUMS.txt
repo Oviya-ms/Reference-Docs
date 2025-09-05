@@ -1,0 +1,144 @@
+2 DIMENSIONAL ARRAYS PRACTICE SUMS
+QN1:TO FIND PRODUCT OF A MATRIX AND A UNIQUE NUMBER
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+int main() 
+{
+   int i,j,n;
+   int A[10][10],rows,cols;
+   int result[10][10];
+   
+   
+   cout <<"get the number of rows:";
+   cin >>rows;
+   cout <<"get the number of columns:";
+   cin >>cols;
+   cout <<"get the unique number:";
+   cin >>n;
+   //get elements of array A
+   for(i=0;i<rows;i++){
+       for(j=0;j<cols;j++){
+           cin >>A[i][j];
+       }
+   }
+   cout << "array A ="<<endl;
+     for(i=0;i<rows;i++){
+       for(j=0;j<cols;j++){
+           cout <<A[i][j] <<"    ";
+       }
+       cout <<endl;
+   }
+   
+   
+   //result
+   for(i=0;i<rows;i++){
+       for(j=0;j<cols;j++){
+        result[i][j]=n*A[i][j];
+       }
+   }
+   
+   cout << "the product matrix ="<<endl;
+    for(i=0;i<rows;i++){
+       for(j=0;j<cols;j++){
+        cout <<result[i][j] << "    ";
+       }
+       cout <<endl;
+   }
+    return 0;
+}
+OUTPUT:
+get the number of rows:3
+get the number of columns:3
+get the unique number:4
+4
+7
+8
+5
+3
+1
+2
+9
+0
+array A =
+4    7    8    
+5    3    1    
+2    9    0    
+the product matrix =
+16    28    32    
+20    12    4    
+8    36    0    
+
+
+=== Code Execution Successful ===
+---------------------------------------------------------------------------------------------------------------
+QN2:SUM OF THE DIAGONAL ELEMENTS IN THE MATRIX
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+int main() 
+{
+   int i,j,n;
+   int A[10][10],rows,cols;
+   int sum=0;
+   
+   
+   cout <<"get the number of rows:";
+   cin >>rows;
+   cout <<"get the number of columns:";
+   cin >>cols;
+   if(rows==cols)
+   {
+   //get elements of array A
+   for(i=0;i<rows;i++){
+       for(j=0;j<cols;j++){
+           cin >>A[i][j];
+       }
+   }
+   cout << "array A ="<<endl;
+     for(i=0;i<rows;i++){
+       for(j=0;j<cols;j++){
+           cout <<A[i][j] <<"    ";
+       }
+       cout <<endl;
+   }
+   
+   
+   //result
+   for(i=0;i<rows;i++){
+       for(j=0;j<cols;j++){
+        if(i==j){  
+        sum+=A[i][j];
+        }
+       }
+   }
+   
+   cout << "The sum of the diagonal elements of the matrix is=";
+   cout <<sum;
+   
+   }
+   else
+   cout <<"The sum of the diagonal elements cannot be determined";
+       
+   
+    return 0;
+}
+OUTPUT:
+get the number of rows:3
+get the number of columns:3
+3
+4
+5
+6
+7
+8
+9
+2
+1
+array A =
+3    4    5    
+6    7    8    
+9    2    1    
+The sum of the diagonal elements of the matrix is=11
+
+=== Code Execution Successful ===

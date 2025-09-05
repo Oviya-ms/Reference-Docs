@@ -1,0 +1,17 @@
+Create a web page containing the following
+-------------------------------------------
+1. Your resume, like formatted bio-data with photo
+	1.1. Includes all the text-formatting
+	1.2. Paragraph, heading, ordered, unordered and definition list
+	1.3. Anchor tag to navigate to other web pages
+2. Table data for academic details with all 3 sections - head,body and footer
+	2.1. Include colspan and rowspan, caption
+	2.1. Include Colgroups also for styling
+3. Create a form that includes most of the input elements (for getting personal information) like 
+	text, password, textarea, email, telephone, number, date, check box, radio, select options, sumbit, cancel etc
+4. The personal information form is kept in Input Personal Details IFrame
+5. Provide a facility for displaying alteast 2 audio with different options
+6. Provide a  facility for displaying alteast 2 video with different options
+7. Provide a facility for displaying alteast 2 different websites in the page
+8. Provide a facility for displaying alteast 2 youtube with different options
+

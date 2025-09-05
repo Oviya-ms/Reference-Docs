@@ -1,0 +1,70 @@
+<html>
+    <head>
+        
+        <script type="text/javascript">  
+            function msg1()
+            {  
+             alert("Hello Trainees(HEAD TAG)");  
+            }  
+        </script>
+         
+         <!-- Including External JS code within HTML file --> 
+         <script type="text/javascript" src="/Basics/js/first.js"></script>  
+        <!-- <script type="text/javascript" src="../js/first.js"></script>   -->
+        <!-- <script type="text/javascript" src="http://127.0.0.1:5501/Basics/js/first.js"> -->
+         <!--  Working Above script works --> 
+        </script> 
+    </head>
+    
+    <body>
+        <pre>
+            JavaScript code can be included within the HTML using 
+            <script type="text/javascript">  
+            // JS Code
+            </script>
+
+            3 Places to put JavaScript code
+				Inside the body tag of html
+				Inside the head tag of html
+				In .js file (external javaScript)
+        </pre>
+
+        <p>Welcome to JavaScript</p>  
+
+       <form>  
+            <input type="button" value="Click Me" onclick="msg1()"/>  
+        </form>  
+
+    <script type="text/javascript">  
+           alert("Welcome to javascript(BODY TAG) - While Loading the page");  
+   </script> 
+
+   <form>  
+       <pre>
+
+       <b> Advantages of External JavaScript  </b>
+        
+        * It helps in the reusability of code in more than one HTML file.
+        * It allows easy code readability.
+        * It is time-efficient as web browsers cache the external js files, which further reduces the page loading time.
+        * It enables both web designers and coders to work with html and js files parallelly and separately, i.e., without facing any code conflictions.
+        * The length of the code reduces as only we need to specify the location of the js file.
+        
+        <strong> Disadvantages of External JavaScript </strong>
+
+        * The stealer may download the coder's code using the url of the js file.
+        * If two js files are dependent on one another, then a failure in one file may affect the execution of the other dependent file.
+        * The web browser needs to make an additional http request to get the js code.
+        * A tiny to a large change in the js code may cause unexpected results in all its dependent files.
+        * We need to check each file that depends on the commonly created external javascript file.
+        * If it is a few lines of code, then better to implement the internal javascript code
+    </pre>
+       
+<p id="p1">This is a paragraph</p>
+        <input type="button" value="Click Here" onclick="myFunction( )"/>  
+        <input type="button" value="Message" onclick="getMessage()"/> 
+        <input type="button" value="Change P Value" onclick="document.getElementById('p1').innerHTML='The P value is changed'"/>
+    </form> 
+
+    </body>
+</html>

@@ -1,0 +1,541 @@
+QN1:
+WRITE A CLASS PROGRAM IN C++ TO GET EMPLOYEE CODE, EMPLOYEE NAME, DEPARTMENT AND BASIC PAY. CALCULATE DA, HRA, PF, TAX, GROSS PAY AND NET PAY. CALCUALATIONS ARE MADE WITH THE FOLLOWING CONDITIONS. 
+
+IF BASIC PAY IS ABOVE 20000, DA IS 58.5% OF BASIC PAY, HRA IS 15% OF BASIC PAY, PF IS 20% OF BASIC PAY AND TAX IS 17% OF BASIC PAY  
+
+IF BASIC PAY IS ABOVE 15000, DA IS 46% OF BASIC PAY, HRA IS 12% OF BASIC PAY, PF IS 15% OF BASIC PAY AND TAX IS 12% OF BASIC PAY  
+
+OTHERWISE DA IS 42.5% OF BASIC PAY, HRA IS RS.1500, PF IS 10% OF BASIC PAY AND NO TAX 
+
+GROSS PAY = BASIC PAY + DA + HRA, DEDUCTION = PF + TAX 
+
+NET PAY = GROSS PAY – DEDUCTION 
+
+PRINT ALL DETAILS IN A NEAT FORMAT 
+
+NOTE: 
+
+Declare all the member data as ‘private’ and member functions ass public the class. Use getData() function, calculate() function and displayData() function for getting the inputs, calculate and print the details respectively. 
+
+
+#include <iostream> 
+
+#include <string> 
+
+using namespace std; 
+
+ 
+
+class Employee
+{ 
+
+private: 
+
+    string name; 
+
+    string code; 
+    
+    string dept_name;
+
+    int Bs; 
+
+    float  Da, Hra, Pf, Tax, Gp, Np,De; 
+
+ 
+
+public: 
+
+    // Function to get employee data 
+
+    void getInput() { 
+
+        cout << "Enter employee Name: "; 
+
+        getline(cin, name); 
+
+        cout << "Enter employee Code: "; 
+
+        getline(cin, code); 
+
+        cout << "Enter department name: "; 
+
+        getline(cin, dept_name); 
+
+        cout << "Enter basic salary: "; 
+
+        cin >> Bs;
+        
+    } 
+
+      // Function to calculate total, average, result and grade 
+
+    void calculate() { 
+
+       if(Bs>20000){ 
+
+    Da = 58.5 / 100.0 * Bs; 
+
+    Hra = 15 / 100.0 * Bs; 
+
+    Pf = 20 / 100.0 * Bs; 
+
+    Tax = 17 / 100.0 * Bs; 
+
+} 
+
+ else if(15000<Bs && Bs<=20000){ 
+
+    Da = 46 / 100.0 * Bs; 
+
+    Hra = 12 / 100.0 * Bs; 
+
+    Pf = 15 / 100.0 * Bs; 
+
+    Tax = 12 / 100.0 * Bs; 
+
+ } 
+
+  else{ 
+
+    Da = 42.5 / 100.0 * Bs; 
+
+    Hra = 1500; 
+
+    Pf = 10 / 100.0 * Bs; 
+
+    Tax = 0; 
+
+} 
+
+    Gp = Bs + Da + Hra; 
+
+    De = Pf + Tax; 
+
+    Np = Gp - De; 
+    }
+
+     
+ 
+
+    // Function to display student data 
+
+    void display() { 
+
+        cout << "\n--- Emplouyee Details ---" << endl; 
+
+            cout << "DEARNESS ALLOWANCE: Rs." << Da << endl; 
+
+    cout << "HOUSE RENT ALLOWANCE: Rs." << Hra << endl; 
+
+    cout << "PROVIDENT FUND: Rs." << Pf << endl; 
+
+    cout << "TAX: Rs." << Tax << endl; 
+
+    cout << "GROSS PAY: Rs." << Gp << endl; 
+
+    cout << "NET PAY: Rs." << Np << endl; 
+
+    cout << "DEDUCTION: Rs." << De << endl; 
+
+    } 
+
+}; 
+
+ 
+
+int main() 
+{ 
+
+    Employee s1; 
+
+ 
+
+    cout << "Enter details of employee:" << endl; 
+
+    s1.getInput(); 
+
+    s1.calculate(); 
+
+    s1.display(); 
+
+    return 0; 
+    
+
+} 
+OUTPUT:
+Enter details of employee:
+Enter employee Name: ADITYA
+Enter employee Code: CGVAK007
+Enter department name: TRAINEE
+Enter basic salary: 27000
+
+--- Emplouyee Details ---
+DEARNESS ALLOWANCE: Rs.15795
+HOUSE RENT ALLOWANCE: Rs.4050
+PROVIDENT FUND: Rs.5400
+TAX: Rs.4590
+GROSS PAY: Rs.46845
+NET PAY: Rs.36855
+DEDUCTION: Rs.9990
+
+=== Code Execution Successful ===
+-----------------------------------------------------------------------------------------------------
+QN2:using default, parameterized, copy constructors and destructors 
+#include <iostream> 
+
+#include <string> 
+
+using namespace std; 
+
+ 
+
+class Employee
+{ 
+
+private: 
+
+    string name; 
+
+    string code; 
+    
+    string dept_name;
+
+    int Bs; 
+
+    float  Da, Hra, Pf, Tax, Gp, Np,De; 
+
+ 
+
+public: 
+
+    // Default Constructor 
+
+    Employee() { 
+
+       name = "No Name"; 
+       
+       dept_name = "no dept_name";
+
+        code = "000"; 
+
+        Bs = 0; 
+
+        cout << "[Default Constructor Called]" << endl; 
+
+      } 
+// Parameterized Constructor 
+
+    Employee(string n, string c, string d , int B) { 
+
+        name = n; 
+
+        code = c; 
+
+        dept_name  = d; 
+
+         Bs = B; 
+
+        calculate(); 
+
+        cout << "[Parameterized Constructor Called]" << endl; 
+
+    } 
+    // Copy Constructor 
+
+    Employee(const Employee &s) { 
+
+        name = s.name; 
+
+        code = s.code; 
+
+        dept_name = s.dept_name; 
+
+        Bs = s.Bs; 
+        Da = s.Da; 
+        Hra = s.Hra;
+        Pf = s.Pf;
+        Tax = s.Tax;
+        Gp = s.Gp;
+        Np = s.Np;
+        De = s.De;
+
+        cout << "[Copy Constructor Called]" << endl; 
+
+    } 
+     
+
+    // Destructor 
+
+    ~Employee() { 
+
+        cout << "[Destructor Called for: " << name << "]" << endl; 
+
+    } 
+    // Function to get employee data 
+
+    void getInput() { 
+
+        cout << "Enter employee Name: "; 
+
+        getline(cin, name); 
+
+        cout << "Enter employee Code: "; 
+
+        getline(cin, code); 
+
+        cout << "Enter department name: "; 
+
+        getline(cin, dept_name); 
+
+        cout << "Enter basic salary: "; 
+
+        cin >> Bs;
+     calculate();
+    } 
+
+
+    void calculate() { 
+
+       if(Bs>20000){ 
+
+    Da = 58.5 / 100.0 * Bs; 
+
+    Hra = 15 / 100.0 * Bs; 
+
+    Pf = 20 / 100.0 * Bs; 
+
+    Tax = 17 / 100.0 * Bs; 
+
+} 
+
+ else if(15000<Bs && Bs<=20000){ 
+
+    Da = 46 / 100.0 * Bs; 
+
+    Hra = 12 / 100.0 * Bs; 
+
+    Pf = 15 / 100.0 * Bs; 
+
+    Tax = 12 / 100.0 * Bs; 
+
+ } 
+
+  else{ 
+
+    Da = 42.5 / 100.0 * Bs; 
+
+    Hra = 1500; 
+
+    Pf = 10 / 100.0 * Bs; 
+
+    Tax = 0; 
+
+} 
+
+    Gp = Bs + Da + Hra; 
+
+    De = Pf + Tax; 
+
+    Np = Gp - De; 
+    }
+    
+
+    void display() { 
+
+        cout << "\n--- Employee Details ---" << endl; 
+
+            cout << "DEARNESS ALLOWANCE: Rs." << Da << endl; 
+
+    cout << "HOUSE RENT ALLOWANCE: Rs." << Hra << endl; 
+
+    cout << "PROVIDENT FUND: Rs." << Pf << endl; 
+
+    cout << "TAX: Rs." << Tax << endl; 
+
+    cout << "GROSS PAY: Rs." << Gp << endl; 
+
+    cout << "NET PAY: Rs." << Np << endl; 
+
+    cout << "DEDUCTION: Rs." << De << endl; 
+
+    } 
+
+}; 
+
+ 
+
+int main() 
+{
+
+ // Object 1: Default constructor 
+
+    Employee s1; 
+
+    s1.getInput(); 
+
+    s1.display(); 
+
+ 
+
+    // Object 2: Parameterized constructor 
+
+    Employee s2("aditya", "cgvak007", "trainee", 27000); 
+
+    s2.display(); 
+
+ 
+
+    // Object 3: Copy constructor (copy of s2) 
+
+    Employee s3 = s2; 
+
+    s3.display();
+
+ 
+
+    return 0; 
+    
+
+} 
+OUTPUT:
+[Default Constructor Called]
+Enter employee Name: harsha
+Enter employee Code: cgvak767
+Enter department name: trainee
+Enter basic salary: 30000
+
+--- Employee Details ---
+DEARNESS ALLOWANCE: Rs.17550
+HOUSE RENT ALLOWANCE: Rs.4500
+PROVIDENT FUND: Rs.6000
+TAX: Rs.5100
+GROSS PAY: Rs.52050
+NET PAY: Rs.40950
+DEDUCTION: Rs.11100
+[Parameterized Constructor Called]
+
+--- Employee Details ---
+DEARNESS ALLOWANCE: Rs.15795
+HOUSE RENT ALLOWANCE: Rs.4050
+PROVIDENT FUND: Rs.5400
+TAX: Rs.4590
+GROSS PAY: Rs.46845
+NET PAY: Rs.36855
+DEDUCTION: Rs.9990
+[Copy Constructor Called]
+
+--- Employee Details ---
+DEARNESS ALLOWANCE: Rs.15795
+HOUSE RENT ALLOWANCE: Rs.4050
+PROVIDENT FUND: Rs.5400
+TAX: Rs.4590
+GROSS PAY: Rs.46845
+NET PAY: Rs.36855
+DEDUCTION: Rs.9990
+[Destructor Called for: aditya]
+[Destructor Called for: aditya]
+[Destructor Called for: harsha]
+
+
+=== Code Execution Successful ===
+---------------------------------------------------------------------------------------------
+QN3.with inheritance
+#include <iostream>
+#include <string>
+using namespace std;
+
+// Base class for personal details
+class employeeDetails {
+protected:
+    string name;
+    string code;
+    string dept_name;
+    int Bs;
+
+public:
+    void getemployeeInfo() {
+        cout << "Enter employee Name: ";
+        getline(cin, name);
+
+        cout << "Enter employee Code: ";
+        getline(cin, code);
+
+        cout << "Enter department name: ";
+        getline(cin, dept_name);
+
+        cout << "Enter basic salary: ";
+        cin >> Bs;
+    }
+};
+
+// Derived class for salary and related computations
+class SalaryDetails : public employeeDetails {
+private:
+    float Da, Hra, Pf, Tax, Gp, Np, De;
+
+public:
+    void calculateSalary() {
+        if (Bs > 20000) {
+            Da = 58.5f / 100 * Bs;
+            Hra = 15 / 100.0f * Bs;
+            Pf = 20 / 100.0f * Bs;
+            Tax = 17 / 100.0f * Bs;
+        }
+        else if (Bs > 15000 && Bs <= 20000) {
+            Da = 46 / 100.0f * Bs;
+            Hra = 12 / 100.0f * Bs;
+            Pf = 15 / 100.0f * Bs;
+            Tax = 12 / 100.0f * Bs;
+        }
+        else {
+            Da = 42.5f / 100 * Bs;
+            Hra = 1500;
+            Pf = 10 / 100.0f * Bs;
+            Tax = 0;
+        }
+
+        Gp = Bs + Da + Hra;
+        De = Pf + Tax;
+        Np = Gp - De;
+    }
+
+    void displayDetails() {
+        cout << "\n--- Employee Details ---\n";
+        cout << "DEARNESS ALLOWANCE: Rs. " << Da << endl;
+        cout << "HOUSE RENT ALLOWANCE: Rs. " << Hra << endl;
+        cout << "PROVIDENT FUND: Rs. " << Pf << endl;
+        cout << "TAX: Rs. " << Tax << endl;
+        cout << "GROSS PAY: Rs. " << Gp << endl;
+        cout << "NET PAY: Rs. " << Np << endl;
+        cout << "DEDUCTION: Rs. " << De << endl;
+    }
+};
+
+int main() {
+    SalaryDetails s;
+
+    cout << "Enter details of employee:\n";
+    s.getemployeeInfo();
+    s.calculateSalary();
+    s.displayDetails();
+
+    return 0;
+}
+OUTPUT:
+Enter details of employee:
+Enter employee Name: aditya
+Enter employee Code: cgvak007
+Enter department name: trainee
+Enter basic salary: 27000
+
+--- Employee Details ---
+DEARNESS ALLOWANCE: Rs. 15795
+HOUSE RENT ALLOWANCE: Rs. 4050
+PROVIDENT FUND: Rs. 5400
+TAX: Rs. 4590
+GROSS PAY: Rs. 46845
+NET PAY: Rs. 36855
+DEDUCTION: Rs. 9990
+
+
+=== Code Execution Successful ===
